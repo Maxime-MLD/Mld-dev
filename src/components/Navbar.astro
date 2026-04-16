@@ -1,0 +1,62 @@
+---
+---
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+  <div class="bg-white/30 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full flex justify-between items-center shadow-2xl">
+    
+    <a href="/" class="font-display font-bold text-xl tracking-tighter">
+      MLD<span class="text-brand-gradient text-xl">.</span>
+    </a>
+
+<ul class="flex gap-8 text-sm font-medium uppercase tracking-widest">
+  <li>
+    <a href="#projets" class="group relative block overflow-hidden leading-tight">
+      <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+        <span class="block text-title">Projets</span>
+      </div>
+      <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-accent">
+        <span class="block text-[#6352ff]">Projets</span>
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a href="#tarifs" class="group relative block overflow-hidden leading-tight">
+      <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+        <span class="block text-title">Tarifs</span>
+      </div>
+      <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-accent">
+        <span class="block text-[#6352ff]">Tarifs</span>
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a href="#contact" class="group relative block overflow-hidden leading-tight">
+      <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+        <span class="block text-title">Contact</span>
+      </div>
+      <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-accent">
+        <span class="block text-[#6352ff]">Contact</span>
+      </div>
+    </a>
+  </li>
+</ul>
+
+    <a href="mailto:contact@mld.com" class="hidden md:block text-[#6352ff] text-sm border border-[#6352ff] px-5 py-2 rounded-full hover:scale-105 hover:bg-[#6352ff]/10 transition-all duration-300">
+      CONTACT MOI
+    </a>
+  </div>
+</nav>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Petite animation d'entrée pour la navbar
+  gsap.from("nav", {
+    y: -50,
+    opacity: 0,
+    duration: 1,
+    delay: 0.5,
+    ease: "power3.out"
+  });
+</script>

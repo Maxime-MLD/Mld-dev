@@ -1,0 +1,67 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Stratégie & Analyse",
+    description: "On définit vos objectifs, votre cible et l'architecture du site. C'est la fondation de votre projet.",
+    tags: ["Audit", "Sitemap", "Objectifs"]
+  },
+  {
+    number: "02",
+    title: "Design & Expérience",
+    description: "Création d'une interface unique qui reflète votre identité de marque tout en optimisant la conversion.",
+    tags: ["UI/UX Design", "Identité", "Prototypes"]
+  },
+  {
+    number: "03",
+    title: "Développement",
+    description: "Un développement sur-mesure utilisant les technologies les plus performantes pour garantir les meilleures performances et une structure optimisée pour le SEO.",
+    tags: ["Code Propre", "Performance", "Sécurité"]
+  },
+  {
+    number: "04",
+    title: "Lancement & Suivi",
+    description: "Mise en ligne, formation à l'outil et accompagnement pour faire évoluer votre présence digitale.",
+    tags: ["SEO", "Hébergement", "Support"]
+  }
+];
+---
+
+<section class="py-24 px-6 bg-main-bg overflow-hidden">
+  <div class="max-w-7xl mx-auto mb-16 text-center">
+    <span class="text-[#6352ff] text-base mb-4 block font-mono uppercase tracking-widest">// Méthodologie</span>
+    <h2 class="text-4xl font-black uppercase text-title leading-tight">
+      Un parcours pensé<br /> pour le <span class="text-[#6352ff]">succès.</span>
+    </h2>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+    
+    <div class="hidden lg:block absolute top-12 left-0 w-full h-px bg-title/5"></div>
+
+    {steps.map((step) => (
+      <div class="relative group">
+        <div class="relative z-10 w-16 h-16 bg-white border border-title/5 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:border-[#6352ff]/30 group-hover:shadow-md transition-all duration-500">
+          <span class="text-2xl font-black italic text-title group-hover:text-[#6352ff] transition-colors">
+            {step.number}
+          </span>
+        </div>
+
+        <h3 class="text-xl font-bold text-title uppercase mb-4 tracking-tight group-hover:text-[#6352ff] transition-colors">
+          {step.title}
+        </h3>
+        <p class="text-title/50 text-base leading-relaxed mb-6">
+          {step.description}
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          {step.tags.map((tag) => (
+            <span class="text-[9px] font-black uppercase tracking-widest text-title/30 border border-title/10 px-2 py-0.5 rounded">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

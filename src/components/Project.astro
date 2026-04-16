@@ -1,0 +1,76 @@
+---
+const projects = [
+  {
+    title: "Mld développement",
+    year: "2026",
+    description: "Site vitrine pour développeur web avec animation.",
+    image: "/images/hero_mld_dev.png",
+    url: "",
+  },
+  {
+    title: "Portfolio MLD",
+    year: "2025",
+    description: "Site vitrine de développeur web sur mesure.",
+    image: "/images/hero_portfolio_mld.png",
+    url: "https://maxime-mld.vercel.app/",
+  },
+    {
+    title: "Heros League",
+    year: "2025",
+    description: "Site dans la location de super héro.",
+    image: "/images/hero_hero_site.png",
+    url: "",
+  },
+];
+---
+
+<section class="py-20 px-6 bg-main-bg">
+  <div class="max-w-7xl mx-auto mb-16">
+    <span class="text-[#6352ff] text-base mb-4 block font-mono uppercase">// Réalisations</span>
+    <h2 class="text-4xl font-black uppercase text-title leading-tight">Des projets<br>sur mesure.</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    
+    {projects.map((project) => (
+      <div class="group bg-white rounded-3xl overflow-hidden border border-title/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+        
+        <div class="relative aspect-video overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+          />
+          
+          <div class="absolute inset-0 bg-[#6352ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+            <a 
+              href={project.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="bg-white text-title px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg hover:scale-105 transition-transform"
+            >
+              Voir le projet
+            </a>
+          </div>
+        </div>
+
+        <div class="p-6 bg-white flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-xl font-bold text-[#6352ff]">{project.title}</h3>
+              <span class="text-xs font-mono text-slate-400">
+                {project.year}
+              </span>
+            </div>
+            <div class="h-1 w-12 bg-[#6352ff] mt-1 rounded-full mb-8"></div>
+            <p class="text-slate-600 text-sm font-style: italic leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    ))}
+    
+  </div>
+</section>
