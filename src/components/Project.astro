@@ -1,27 +1,29 @@
 ---
 import { Image } from 'astro:assets';
-import myImage from '../assets/projet-1.jpg';
+import imageMldDev from '../assets/images/hero_mld_dev.webp';
+import imageMldPortfolio from '../assets/images/hero_portfolio_mld.webp'
+import imageHero from '../assets/images/hero_hero_site.webp'
 
 const projects = [
   {
     title: "Mld développement",
     year: "2026",
     description: "Site Vitrine pour développeur web avec animation.",
-    image: "/images/hero_mld_dev.webp",
-    url: "",
+    image: imageMldDev,
+    url: "https://mld-dev.com/",
   },
   {
     title: "Portfolio MLD",
     year: "2025",
     description: "Portfolio Mono-page avec formulaire de contact.",
-    image: "/images/hero_portfolio_mld.webp",
+    image: imageMldPortfolio,
     url: "https://maxime-mld.vercel.app/",
   },
     {
     title: "Heros League",
     year: "2025",
     description: "Site Vitrine dans la location de super-héros.",
-    image: "/images/hero_hero_site.webp",
+    image: imageHero,
     url: "",
   },
 ];
@@ -35,19 +37,21 @@ const projects = [
 
   <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
     
-    {projects.map((project) => (
+    {projects.map((project, index) => (
       <div class="group bg-white rounded-3xl overflow-hidden border border-title/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
         
         <div class="relative aspect-video overflow-hidden">
           <Image
-            src={project.image}
-            width={400}
-            height={250}
-            format="webp"
-            quality="hight"
-            alt={project.title}
-            class="rounded-2xl"
-          />
+              src={project.image}
+              width={800}
+              height={450}
+              format="webp"
+              quality={80}
+              alt={project.title}
+              class="rounded-2xl"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchpriority={index === 0 ? "high" : "low"}
+            />
           
           <div class="absolute inset-0 bg-[#6352ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
             <a
