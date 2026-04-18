@@ -10,7 +10,7 @@
       <h2 class="reveal text-3xl md:text-4xl font-black uppercase text-title leading-tight">
         Prêt à donner <br /> vie à votre <br /><span class="text-gradient-pink italic pr-2 mb-4">vision ?</span>
       </h2>
-      <p class="reveal text-title/50 text-sm mb-12">Vous avez un projet ambitieux ? Un produit à lancer ?<br>Une refonte qui traîne depuis trop longtemps ?<br>Parlons-en — je réponds dans les 24h.</p>
+      <p class="reveal text-title/70 text-sm mb-12 italic">Vous avez un projet ambitieux ? Un produit à lancer ?<br>Une refonte qui traîne depuis trop longtemps ?<br>Parlons-en — je réponds dans les 24h.</p>
       
       <div class="space-y-8">
         <div class="flex items-center gap-4 pb-6 mb-12 border-b border-white/10">
@@ -45,22 +45,22 @@
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="space-y-2">
-      <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Nom</label>
-      <input type="text" name="name" required placeholder="Jean Dupont" 
-        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
+      <label for="name" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Nom</label>
+      <input type="text" id="name" name="name" required placeholder="Jean Dupont" 
+        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/50" />
     </div>
 
     <div class="space-y-2">
-      <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Email</label>
-      <input type="email" name="email" required placeholder="jean@mail.com" 
-        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
+      <label for="email" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Email</label>
+      <input type="email" id="email" name="email" required placeholder="jean@mail.com" 
+        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/50" />
     </div>
   </div>
 
   <div class="space-y-2">
-    <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Votre projet</label>
+    <label for="project_type" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Votre projet</label>
     <div class="relative">
-      <select name="project_type" class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title/60 appearance-none cursor-pointer">
+      <select id="project_type" name="project_type" class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title/50 appearance-none cursor-pointer">
         <option value="Site Vitrine">Site Vitrine</option>
         <option value="Boutique E-commerce">Boutique E-commerce</option>
         <option value="Site Mono-page">Site Mono-page</option>
@@ -72,9 +72,9 @@
   </div>
 
   <div class="space-y-2">
-    <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Message</label>
-    <textarea rows="4" name="message" required placeholder="Parlez-moi de vos objectifs..." 
-      class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30 resize-none"></textarea>
+    <label for="message" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Message</label>
+    <textarea id="message" rows="4" name="message" required placeholder="Parlez-moi de vos objectifs..."
+      class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/50 resize-none"></textarea>
   </div>
 
   <button id="submit-btn" type="submit" class="w-full bg-[#6352ff] hover:bg-[#d363ff] text-white font-black uppercase tracking-widest py-6 rounded-2xl transition-all duration-500 shadow-xl shadow-[#6352ff]/25 flex items-center justify-center gap-3 group">
