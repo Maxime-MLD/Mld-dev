@@ -45,13 +45,13 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="space-y-2">
         <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Nom</label>
-        <input type="text" placeholder="Jean Dupont" 
+        <input type="text" name="name" required placeholder="Jean Dupont" 
           class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
       </div>
 
       <div class="space-y-2">
         <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Email</label>
-        <input type="email" placeholder="jean@mail.com" 
+        <input type="email" name="email" required placeholder="jean@mail.com" 
           class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
       </div>
     </div>
@@ -60,9 +60,9 @@
       <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Votre projet</label>
       <div class="relative">
         <select class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title/60 appearance-none cursor-pointer">
-          <option>Site Vitrine</option>
-          <option>Boutique E-commerce</option>
-          <option>Site Mono-page</option>
+          <option value="Site Vitrine">Site Vitrine</option>
+          <option value="Boutique E-commerce">Boutique E-commerce</option>
+          <option value="Site Mono-page">Site Mono-page</option>
         </select>
         <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-[#6352ff]">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
@@ -72,7 +72,7 @@
 
     <div class="space-y-2">
       <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Message</label>
-      <textarea rows="4" placeholder="Parlez-moi de vos objectifs..." 
+      <textarea rows="4" name="message" required placeholder="Parlez-moi de vos objectifs..." 
         class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30 resize-none"></textarea>
     </div>
 
