@@ -1,0 +1,19 @@
+---
+
+---
+<div class="min-h-screen w-full bg-main-bg relative overflow-hidden">
+  <div
+    class="absolute inset-0 z-0 opacity-100 pointer-events-none"
+    style="
+      background-image: 
+        linear-gradient(to right, #e2e0ff 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e0ff 1px, transparent 1px);
+      background-size: 96px 64px;
+      mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    "
+  ></div>
+
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-screen">
+    <slot /> </div>
+</div>

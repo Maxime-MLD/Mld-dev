@@ -24,10 +24,14 @@ import Footer from '@/components/Footer.astro';
   <meta property="twitter:image" content="/images/og-hero.webp" />
 
   <meta name="robots" content="index, follow" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+    <link
+  rel="preload"
+  href="/fonts/geist-variable.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin="anonymous"
+/>
   </head>
   <body>
     <Navbar />
@@ -58,3 +62,11 @@ import Footer from '@/components/Footer.astro';
     observer.observe(el);
   });
 </script>
+
+<style is:global>
+  /* On met un fond qui ressemble au gradient pour éviter le flash blanc */
+  body {
+    background-color: #f9f8ff; /* La couleur de fond de ton site */
+  }
+  
+</style>

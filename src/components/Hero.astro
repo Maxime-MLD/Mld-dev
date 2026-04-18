@@ -1,9 +1,9 @@
 ---
-import GradientBlurBg from './gradient-blur-bg';
+import GradientBlurBg from './GradientBlurBg.astro';
 ---
 
 <section id="hero" class="bg-main-bg relative min-h-screen">
-  <GradientBlurBg client:load>
+  <GradientBlurBg>
     <div class="flex flex-col items-center justify-center min-h-screen px-4 text-center">
       
 <h1 id="hero-title" class="text-5xl md:text-9xl font-black uppercase leading-none text-title overflow-hidden flex flex-col md:block">
@@ -27,7 +27,7 @@ import GradientBlurBg from './gradient-blur-bg';
   </GradientBlurBg>
 </section>
 <script>
-import { gsap } from "gsap";
+import { gsap } from "gsap/dist/gsap";
 
 const tl = gsap.timeline();
 

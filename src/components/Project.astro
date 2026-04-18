@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import myImage from '../assets/projet-1.jpg';
+
 const projects = [
   {
     title: "Mld développement",
@@ -36,14 +39,18 @@ const projects = [
       <div class="group bg-white rounded-3xl overflow-hidden border border-title/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
         
         <div class="relative aspect-video overflow-hidden">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+          <Image
+            src={project.image}
+            width={400}
+            height={250}
+            format="webp"
+            quality="hight"
+            alt={project.title}
+            class="rounded-2xl"
           />
           
           <div class="absolute inset-0 bg-[#6352ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-            <a 
+            <a
               href={project.url} 
               target="_blank" 
               rel="noopener noreferrer" 

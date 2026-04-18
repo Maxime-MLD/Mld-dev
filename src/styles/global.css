@@ -69,10 +69,19 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Geist", sans-serif;
   }
   html {
     @apply font-sans;
   }
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist-variable.ttf") format("truetype");
+  font-weight: 100 900; /* Supporte tous les gras si c'est une police variable */
+  font-style: normal;
+  font-display: swap; /* TRÈS IMPORTANT pour la performance */
 }
 
 @theme inline {
@@ -119,6 +128,7 @@ html {
 }
 
 :root {
+  font-family: "Geist", sans-serif;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

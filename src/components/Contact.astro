@@ -46,13 +46,13 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="space-y-2">
       <label for="name" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Nom</label>
-      <input type="text" id="name" name="name" required placeholder="Jean Dupont" 
+      <input type="text" id="name" name="name" autocomplete="name" required placeholder="Jean Dupont"
         class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/50" />
     </div>
 
     <div class="space-y-2">
       <label for="email" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Email</label>
-      <input type="email" id="email" name="email" required placeholder="jean@mail.com" 
+      <input type="email" id="email" name="email" autocomplete="email" required placeholder="jean@mail.com"
         class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/50" />
     </div>
   </div>
@@ -73,7 +73,7 @@
 
   <div class="space-y-2">
     <label for="message" class="text-[10px] uppercase font-black tracking-[0.2em] text-title/70 ml-2">Message</label>
-    <textarea id="message" rows="4" name="message" required placeholder="Parlez-moi de vos objectifs..."
+    <textarea id="message" rows="4" name="message" autocomplete="off" required placeholder="Parlez-moi de vos objectifs..."
       class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/50 resize-none"></textarea>
   </div>
 
