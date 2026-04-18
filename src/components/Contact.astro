@@ -40,7 +40,8 @@
 
 <div class="reveal bg-white mx-auto w-full max-w-100 md:max-w-none p-6 md:p-12 rounded-[40px] shadow-[0_20px_50px_rgba(99,82,255,0.05)] border border-white">
   
-  <form id="form" action="#" method="POST" class="space-y-6">
+  <form id="form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+    <input type="hidden" name="access_key" value="ebae498f-43fc-44c7-8eba-7a8b00d55fe3">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="space-y-2">
         <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Nom</label>
@@ -79,7 +80,61 @@
       <span>Envoyer la demande</span>
       <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
     </button>
+
+    <div id="result" class="text-center text-sm font-medium mt-4 min-h-5"></div>
   </form>
 </div>
   </div>
 </section>
+
+<script is:inline>
+  const form = document.getElementById('form');
+  const result = document.getElementById('result');
+  const btn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    // État de chargement
+    btn.disabled = true;
+    btn.innerText = "Envoi en cours...";
+    result.innerHTML = "Veuillez patienter...";
+    result.classList.remove('text-red-500', 'text-green-500');
+    result.classList.add('text-title/50');
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.classList.add('text-green-500');
+                result.innerHTML = "✓ Message envoyé avec succès !";
+                form.reset(); // Vide le formulaire
+            } else {
+                console.log(response);
+                result.classList.add('text-red-500');
+                result.innerHTML = json.message || "Une erreur est survenue.";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Une erreur réseau est survenue.";
+        })
+        .then(function() {
+            btn.disabled = false;
+            btn.innerText = "Envoyer le message";
+            setTimeout(() => {
+                result.innerHTML = ""; // Efface le message après 5 secondes
+            }, 5000);
+        });
+  });
+</script>
