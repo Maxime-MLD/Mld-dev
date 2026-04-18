@@ -40,49 +40,50 @@
 
 <div class="reveal bg-white mx-auto w-full max-w-100 md:max-w-none p-6 md:p-12 rounded-[40px] shadow-[0_20px_50px_rgba(99,82,255,0.05)] border border-white">
   
-  <form id="form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-    <input type="hidden" name="access_key" value="ebae498f-43fc-44c7-8eba-7a8b00d55fe3">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="space-y-2">
-        <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Nom</label>
-        <input type="text" name="name" required placeholder="Jean Dupont" 
-          class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
-      </div>
-
-      <div class="space-y-2">
-        <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Email</label>
-        <input type="email" name="email" required placeholder="jean@mail.com" 
-          class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
-      </div>
+<form id="form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+  <input type="hidden" name="access_key" value="ebae498f-43fc-44c7-8eba-7a8b00d55fe3">
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="space-y-2">
+      <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Nom</label>
+      <input type="text" name="name" required placeholder="Jean Dupont" 
+        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
     </div>
 
     <div class="space-y-2">
-      <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Votre projet</label>
-      <div class="relative">
-        <select class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title/60 appearance-none cursor-pointer">
-          <option value="Site Vitrine">Site Vitrine</option>
-          <option value="Boutique E-commerce">Boutique E-commerce</option>
-          <option value="Site Mono-page">Site Mono-page</option>
-        </select>
-        <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-[#6352ff]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-        </div>
+      <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Email</label>
+      <input type="email" name="email" required placeholder="jean@mail.com" 
+        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30" />
+    </div>
+  </div>
+
+  <div class="space-y-2">
+    <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Votre projet</label>
+    <div class="relative">
+      <select name="project_type" class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title/60 appearance-none cursor-pointer">
+        <option value="Site Vitrine">Site Vitrine</option>
+        <option value="Boutique E-commerce">Boutique E-commerce</option>
+        <option value="Site Mono-page">Site Mono-page</option>
+      </select>
+      <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-[#6352ff]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
       </div>
     </div>
+  </div>
 
-    <div class="space-y-2">
-      <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Message</label>
-      <textarea rows="4" name="message" required placeholder="Parlez-moi de vos objectifs..." 
-        class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30 resize-none"></textarea>
-    </div>
+  <div class="space-y-2">
+    <label class="text-[10px] uppercase font-black tracking-[0.2em] text-title/50 ml-2">Message</label>
+    <textarea rows="4" name="message" required placeholder="Parlez-moi de vos objectifs..." 
+      class="w-full bg-[#f8f7ff] border border-transparent focus:border-[#6352ff]/20 focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all text-title placeholder:text-title/30 resize-none"></textarea>
+  </div>
 
-    <button id="btn" type="submit" class="w-full bg-[#6352ff] hover:bg-[#d363ff] text-white font-black uppercase tracking-widest py-6 rounded-2xl transition-all duration-500 shadow-xl shadow-[#6352ff]/25 flex items-center justify-center gap-3 group">
-      <span>Envoyer la demande</span>
-      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-    </button>
+  <button id="submit-btn" type="submit" class="w-full bg-[#6352ff] hover:bg-[#d363ff] text-white font-black uppercase tracking-widest py-6 rounded-2xl transition-all duration-500 shadow-xl shadow-[#6352ff]/25 flex items-center justify-center gap-3 group">
+    <span id="btn-text">Envoyer la demande</span>
+    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+  </button>
 
-    <div id="result" class="text-center text-sm font-medium mt-4 min-h-5"></div>
-  </form>
+  <div id="result" class="text-center text-sm font-medium mt-4 min-h-5"></div>
+</form>
 </div>
   </div>
 </section>
@@ -91,6 +92,7 @@
   const form = document.getElementById('form');
   const result = document.getElementById('result');
   const btn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -100,41 +102,39 @@
 
     // État de chargement
     btn.disabled = true;
-    btn.innerText = "Envoi en cours...";
+    btnText.innerText = "Envoi en cours...";
     result.innerHTML = "Veuillez patienter...";
-    result.classList.remove('text-red-500', 'text-green-500');
-    result.classList.add('text-title/50');
+    result.className = "text-center text-sm font-medium mt-4 min-h-5 text-title/50";
 
     fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(async (response) => {
-            let json = await response.json();
-            if (response.status == 200) {
-                result.classList.add('text-green-500');
-                result.innerHTML = "✓ Message envoyé avec succès !";
-                form.reset(); // Vide le formulaire
-            } else {
-                console.log(response);
-                result.classList.add('text-red-500');
-                result.innerHTML = json.message || "Une erreur est survenue.";
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            result.innerHTML = "Une erreur réseau est survenue.";
-        })
-        .then(function() {
-            btn.disabled = false;
-            btn.innerText = "Envoyer le message";
-            setTimeout(() => {
-                result.innerHTML = ""; // Efface le message après 5 secondes
-            }, 5000);
-        });
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+    .then(async (response) => {
+      let res = await response.json();
+      if (response.status == 200) {
+        result.classList.replace('text-title/50', 'text-green-500');
+        result.innerHTML = "✓ Message envoyé avec succès !";
+        form.reset();
+      } else {
+        result.classList.replace('text-title/50', 'text-red-500');
+        result.innerHTML = res.message || "Une erreur est survenue.";
+      }
+    })
+    .catch(error => {
+      result.classList.replace('text-title/50', 'text-red-500');
+      result.innerHTML = "Une erreur réseau est survenue.";
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btnText.innerText = "Envoyer la demande";
+      setTimeout(() => {
+        result.innerHTML = "";
+      }, 5000);
+    });
   });
 </script>
