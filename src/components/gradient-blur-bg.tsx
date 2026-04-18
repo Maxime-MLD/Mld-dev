@@ -7,7 +7,7 @@ export const GradientBlurBg = ({
 }) => {
   return (
     <div className="min-h-screen w-full bg-main-bg relative overflow-hidden">
-      {/* LA GRILLE (Seule, sans lueur de couleur) */}
+      {/* LA GRILLE AVEC FONDU VERS LE BAS */}
       <div
         className="absolute inset-0 z-0 opacity-100 pointer-events-none"
         style={{
@@ -17,11 +17,11 @@ export const GradientBlurBg = ({
           `,
           backgroundSize: "96px 64px",
 
-          /* On garde l'estompage : net au centre, s'efface sur les bords */
+          /* LE MASQUE : Noir en haut (visible), Transparent en bas (masqué) */
           maskImage:
-            "radial-gradient(circle 1000px at center, transparent 20%, black 100%)",
+            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
           WebkitMaskImage:
-            "radial-gradient(circle 1000px at center, transparent 20%, black 100%)",
+            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
         }}
       />
 

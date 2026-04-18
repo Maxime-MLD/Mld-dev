@@ -3,34 +3,34 @@ const projects = [
   {
     title: "Mld développement",
     year: "2026",
-    description: "Site vitrine pour développeur web avec animation.",
-    image: "/images/hero_mld_dev.png",
+    description: "Site Vitrine pour développeur web avec animation.",
+    image: "/images/hero_mld_dev.webp",
     url: "",
   },
   {
     title: "Portfolio MLD",
     year: "2025",
-    description: "Site vitrine de développeur web sur mesure.",
-    image: "/images/hero_portfolio_mld.png",
+    description: "Portfolio Mono-page avec formulaire de contact.",
+    image: "/images/hero_portfolio_mld.webp",
     url: "https://maxime-mld.vercel.app/",
   },
     {
     title: "Heros League",
     year: "2025",
-    description: "Site dans la location de super héro.",
-    image: "/images/hero_hero_site.png",
+    description: "Site Vitrine dans la location de super-héros.",
+    image: "/images/hero_hero_site.webp",
     url: "",
   },
 ];
 ---
 
-<section class="py-20 px-6 bg-main-bg">
+<section id="projets" class="py-20 px-6 bg-main-bg">
   <div class="max-w-7xl mx-auto mb-16">
-    <span class="text-[#6352ff] text-base mb-4 block font-mono uppercase">// Réalisations</span>
-    <h2 class="text-4xl font-black uppercase text-title leading-tight">Des projets<br>sur mesure.</h2>
+    <span class="reveal text-[#6352ff] text-base mb-4 block font-mono uppercase tracking-[0.3em]">// Réalisations</span>
+    <h2 class="reveal text-3xl md:text-4xl font-black uppercase text-title leading-tight">Des projets<br><span class="text-gradient-pink italic">sur mesure.</span></h2>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+  <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
     
     {projects.map((project) => (
       <div class="group bg-white rounded-3xl overflow-hidden border border-title/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
@@ -74,3 +74,4 @@ const projects = [
     
   </div>
 </section>
+<div class="w-full h-px bg-linear-to-r from-transparent via-[#d363ff]/40 to-transparent"></div>

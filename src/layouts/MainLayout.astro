@@ -2,14 +2,28 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '@/components/Footer.astro';
-const { title = "Portfolio Dev" } = Astro.props;
 ---
 
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+<title>Mld. — Créateur de site web sur mesure.</title>
+
+  <meta name="description" content="MLD. crée votre site web sur-mesure : du site vitrine à la boutique e-commerce. Boostez votre présence en ligne avec un design unique, performant et optimisé SEO." />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ton-domaine.com/" />
+  <meta property="og:title" content="Mld. — Développeur de site Web sur-mesure" />
+  <meta property="og:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
+  <meta property="og:image" content="/images/og-hero.webp" /> <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Mld. — Développeur de site Web" />
+  <meta property="twitter:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
+  <meta property="twitter:image" content="/images/og-hero.webp" />
+
+  <meta name="robots" content="index, follow" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,3 +35,26 @@ const { title = "Portfolio Dev" } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3 // L'animation se déclenche quand 10% de l'élément est visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        // On arrête d'observer une fois l'animation jouée (optionnel)
+        // observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+  // On cible tous les éléments avec la classe .reveal
+  document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

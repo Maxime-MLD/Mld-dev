@@ -27,15 +27,15 @@ const steps = [
 ];
 ---
 
-<section class="py-24 px-6 bg-main-bg overflow-hidden">
+<section id="project" class="py-24 px-6 bg-main-bg overflow-hidden">
   <div class="max-w-7xl mx-auto mb-16 text-center">
-    <span class="text-[#6352ff] text-base mb-4 block font-mono uppercase tracking-widest">// Méthodologie</span>
-    <h2 class="text-4xl font-black uppercase text-title leading-tight">
-      Un parcours pensé<br /> pour le <span class="text-[#6352ff]">succès.</span>
+    <span class="reveal text-[#6352ff] text-base mb-4 block font-mono uppercase tracking-[0.3em]">// Méthodologie</span>
+    <h2 class="reveal text-3xl md:text-4xl font-black uppercase text-title leading-tight mb-4">
+      Un parcours pensé<br /> pour le <span class="text-gradient-pink italic">succès.</span>
     </h2>
   </div>
 
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+  <div class="reveal max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
     
     <div class="hidden lg:block absolute top-12 left-0 w-full h-px bg-title/5"></div>
 
@@ -54,14 +54,15 @@ const steps = [
           {step.description}
         </p>
 
-        <div class="flex flex-wrap gap-2">
+        {/* <div class="flex flex-wrap gap-2">
           {step.tags.map((tag) => (
             <span class="text-[9px] font-black uppercase tracking-widest text-title/30 border border-title/10 px-2 py-0.5 rounded">
               {tag}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
     ))}
   </div>
 </section>
+<div class="w-full h-px bg-linear-to-r from-transparent via-[#d363ff]/40 to-transparent"></div>
