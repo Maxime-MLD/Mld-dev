@@ -59,23 +59,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@layer base {
-  /* On crée une utilité pour le texte en dégradé */
-  .text-gradient {
-    @apply bg-brand-gradient bg-clip-text text-transparent;
-  }
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-family: "Geist", sans-serif;
-  }
-  html {
-    @apply font-sans;
-  }
-}
-
 @font-face {
   font-family: "Geist";
   src:
@@ -84,6 +67,17 @@ html {
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Geist", sans-serif;
+  }
+
+  html {
+    font-family: "Geist", sans-serif;
+  }
 }
 
 @theme inline {
