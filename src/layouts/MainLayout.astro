@@ -6,33 +6,37 @@ import Footer from '@/components/Footer.astro';
 
 <html lang="fr">
   <head>
-<title>Mld. — Créateur de site web sur mesure.</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
 
-  <meta name="description" content="MLD. crée votre site web sur-mesure : du site vitrine à la boutique e-commerce. Boostez votre présence en ligne avec un design unique, performant et optimisé SEO." />
+    <title>Mld. — Créateur de site web sur mesure.</title>
+    <meta name="description" content="MLD. crée votre site web sur-mesure : du site vitrine à la boutique e-commerce. Boostez votre présence en ligne avec un design unique, performant et optimisé SEO." />
+    <meta name="robots" content="index, follow" />
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mld-dev.com/" />
-  <meta property="og:title" content="MLD Développement | Créateur de site web sur-mesure" />
-  <meta property="og:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
-  <meta property="og:image" content="/images/og-hero.webp" /> <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="MLD Développement | Créateur de site web sur-mesure" />
-  <meta property="twitter:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
-  <meta property="twitter:image" content="/images/og-hero.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mld-dev.com/" />
+    <meta property="og:title" content="MLD Développement | Créateur de site web sur-mesure" />
+    <meta property="og:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
+    <meta property="og:image" content="https://mld-dev.com/images/og-hero.webp" />
 
-  <meta name="robots" content="index, follow" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mld-dev.com/" />
+    <meta property="twitter:title" content="MLD Développement | Créateur de site web sur-mesure" />
+    <meta property="twitter:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
+    <meta property="twitter:image" content="https://mld-dev.com/images/og-hero.webp" />
 
-  <link
-    rel="preload"
-    href="/fonts/geist-variable.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
+    <link
+      rel="preload"
+      href="/fonts/geist-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
   </head>
+
   <body>
     <Navbar />
     <slot />
