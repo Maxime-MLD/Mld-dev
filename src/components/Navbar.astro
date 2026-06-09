@@ -14,7 +14,7 @@
           <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
             <span class="block text-title">Projets</span>
           </div>
-          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-[#6352ff]">
+          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-white">
             <span class="block">Projets</span>
           </div>
         </a>
@@ -24,7 +24,7 @@
           <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
             <span class="block text-title">Tarifs</span>
           </div>
-          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-[#6352ff]">
+          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-white">
             <span class="block">Tarifs</span>
           </div>
         </a>
@@ -34,48 +34,104 @@
           <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
             <span class="block text-title">Contact</span>
           </div>
-          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-[#6352ff]">
+          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-white">
             <span class="block">Contact</span>
+          </div>
+        </a>
+      </li>
+            <li>
+        <a href="#faq" class="group relative block overflow-hidden leading-tight">
+          <div class="transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+            <span class="block text-title">FAQ</span>
+          </div>
+          <div class="absolute inset-0 transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0 text-white">
+            <span class="block">FAQ</span>
           </div>
         </a>
       </li>
     </ul>
 
-    <a href="#contact" class="hidden md:block text-[#6352ff] text-sm border border-[#6352ff] px-5 py-2 rounded-full hover:scale-105 hover:bg-[#6352ff]/80 hover:text-white transition-all duration-300">
-      CONTACTE-MOI
-    </a>
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" aria-label="Changer le thème" class="w-9 h-9 flex items-center justify-center rounded-full border border-[#6352ff] hover:bg-[#6352ff]/70 hover:border-[#6352ff]/40 text-title/60 dark:border-white dark:text-title hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="icon-sun" class="hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="icon-moon" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+      <a href="#contact" class="hidden md:block text-[#6352ff] dark:text-white text-sm border border-[#6352ff] dark:border-white px-5 py-2 rounded-full hover:scale-105 hover:bg-[#6352ff]/70 dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300">
+        CONTACTE-MOI
+      </a>
+    </div>
   </div>
 
   <!-- Nav-Bar Mobile -->
-  <div class="lg:hidden fixed top-0 left-0 w-full p-4">
-    <div class="nav-pill-mobile max-w-7xl mx-auto flex justify-between items-center bg-white/30 backdrop-blur-lg border border-white/20 p-4 rounded-full shadow-sm relative z-110">
-      <a href="/" class="text-2xl font-black text-title">MLD.</a>
-      <button id="menu-btn" aria-label="Ouvrir le menu de navigation" class="p-2 outline-none">
-        <div id="burger-icon" class="space-y-1.5">
-          <span class="block w-6 h-0.5 bg-title transition-transform duration-300"></span>
-          <span class="block w-6 h-0.5 bg-title transition-opacity duration-300"></span>
-          <span class="block w-6 h-0.5 bg-title transition-transform duration-300"></span>
-        </div>
-      </button>
+  <!-- Mobile — pill + dropdown compact dans le même conteneur -->
+  <div class="lg:hidden fixed top-0 left-0 w-full px-4 pt-4 z-50">
+
+    <!-- Pill -->
+    <div class="nav-pill-mobile flex justify-between items-center bg-white/30 dark:bg-white/5 backdrop-blur-lg border border-white/20 dark:border-white/10 px-4 py-3 rounded-full shadow-sm">
+      <a href="/" class="text-xl font-black tracking-tighter text-title dark:text-white">MLD<span class="text-gradient-pink">.</span></a>
+      <div class="flex items-center gap-1.5">
+        <button id="theme-toggle-mobile" aria-label="Changer le thème" class="w-9 h-9 flex items-center justify-center rounded-full text-title/50 dark:text-white/50">
+          <svg id="icon-sun-mobile" class="hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <svg id="icon-moon-mobile" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </button>
+        <button id="menu-btn" aria-label="Ouvrir le menu" class="w-9 h-9 flex items-center justify-center outline-none">
+          <div id="burger-icon" class="flex flex-col gap-1.5">
+            <span class="block w-5 h-0.5 bg-title dark:bg-white/80 transition-transform duration-300 origin-center"></span>
+            <span class="block w-5 h-0.5 bg-title dark:bg-white/80 transition-opacity duration-300"></span>
+            <span class="block w-5 h-0.5 bg-title dark:bg-white/80 transition-transform duration-300 origin-center"></span>
+          </div>
+        </button>
+      </div>
     </div>
 
-    <div id="mobile-menu" class="fixed inset-0 z-100 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
-      <div id="menu-overlay" class="absolute inset-0 bg-white/40 backdrop-blur-2xl"></div>
-      
-      <div class="absolute top-0 left-0 w-full bg-white/60 backdrop-blur-3xl border-b border-white/30 pt-32 pb-12 px-8 shadow-2xl">
-        <nav class="flex flex-col gap-6">
-          <a href="/#hero" class="mobile-link text-xl font-bold uppercase tracking-widest text-title">Accueil</a>
-          <a href="/#projets" class="mobile-link text-xl font-bold uppercase tracking-widest text-title">Projets</a>
-          <a href="/#tarifs" class="mobile-link text-xl font-bold uppercase tracking-widest text-title">Tarifs</a>
-          <a href="/#form" class="mobile-link text-xl font-bold uppercase tracking-widest text-[#6352ff]">Contact</a>
+    <!-- Dropdown — même largeur que le conteneur, slide depuis le pill -->
+    <div id="mobile-menu" class="mt-2 opacity-0 pointer-events-none" style="transform: translateY(-8px)">
+      <div class="bg-white/90 dark:bg-[#0d0b22]/95 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-3xl p-2 shadow-2xl shadow-black/10 dark:shadow-black/40">
+        <nav class="flex flex-col">
+          <a href="/#hero"    class="mobile-link px-5 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-widest text-title dark:text-white/80 hover:bg-title/5 dark:hover:bg-white/8 transition-colors duration-200">Accueil</a>
+          <a href="/#projets" class="mobile-link px-5 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-widest text-title dark:text-white/80 hover:bg-title/5 dark:hover:bg-white/8 transition-colors duration-200">Projets</a>
+          <a href="/#tarifs"  class="mobile-link px-5 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-widest text-title dark:text-white/80 hover:bg-title/5 dark:hover:bg-white/8 transition-colors duration-200">Tarifs</a>
+          <a href="/#faq"     class="mobile-link px-5 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-widest text-title dark:text-white/80 hover:bg-title/5 dark:hover:bg-white/8 transition-colors duration-200">FAQ</a>
+          <div class="mx-3 my-1.5 h-px bg-title/8 dark:bg-white/8"></div>
+          <a href="/#form" class="mobile-link m-1.5 px-5 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-widest bg-brand-gradient text-white text-center shadow-lg shadow-[#6352ff]/20">Contact</a>
         </nav>
       </div>
     </div>
+
   </div>
 </nav>
 
 <script>
   import { gsap } from "gsap";
+
+  // Dark mode toggle (desktop + mobile)
+  function syncIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('icon-sun')?.classList.toggle('hidden', !isDark);
+    document.getElementById('icon-moon')?.classList.toggle('hidden', isDark);
+    document.getElementById('icon-sun-mobile')?.classList.toggle('hidden', !isDark);
+    document.getElementById('icon-moon-mobile')?.classList.toggle('hidden', isDark);
+  }
+
+  function applyToggle() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('mld-theme', isDark ? 'dark' : 'light');
+    syncIcons();
+  }
+
+  syncIcons();
+  document.getElementById('theme-toggle')?.addEventListener('click', applyToggle);
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', applyToggle);
 
   // Animation d'entrée
   gsap.from(".hidden.lg\\:flex, .nav-pill-mobile", {
@@ -87,36 +143,49 @@
   });
 
   const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuOverlay = document.getElementById('menu-overlay');
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement | null;
   const links = document.querySelectorAll('.mobile-link');
   const spans = menuBtn?.querySelectorAll('span');
+  let isOpen = false;
 
-  function toggleMenu() {
-    if (mobileMenu && menuBtn && spans) {
-      const isOpening = mobileMenu.classList.contains('pointer-events-none');
-      
-      if (isOpening) {
-        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = 'hidden';
-        // Animation burger vers croix
-        spans[0].style.transform = "translateY(8px) rotate(45deg)";
-        spans[1].style.opacity = "0";
-        spans[2].style.transform = "translateY(-8px) rotate(-45deg)";
-      } else {
-        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = '';
-        // Retour burger
-        spans[0].style.transform = "translateY(0) rotate(0)";
-        spans[1].style.opacity = "1";
-        spans[2].style.transform = "translateY(0) rotate(0)";
-      }
+  function openMenu() {
+    if (!mobileMenu) return;
+    isOpen = true;
+    mobileMenu.classList.remove('pointer-events-none');
+    gsap.to(mobileMenu, { opacity: 1, y: 0, duration: 0.28, ease: 'power3.out' });
+    if (spans) {
+      spans[0].style.transform = "translateY(6px) rotate(45deg)";
+      spans[1].style.opacity = "0";
+      spans[2].style.transform = "translateY(-6px) rotate(-45deg)";
     }
   }
 
-  if (menuBtn && mobileMenu && menuOverlay) {
-    menuBtn.addEventListener('click', toggleMenu);
-    menuOverlay.addEventListener('click', toggleMenu);
-    links.forEach(link => link.addEventListener('click', toggleMenu));
+  function closeMenu() {
+    if (!mobileMenu) return;
+    isOpen = false;
+    gsap.to(mobileMenu, {
+      opacity: 0, y: -8, duration: 0.2, ease: 'power2.in',
+      onComplete: () => mobileMenu.classList.add('pointer-events-none')
+    });
+    if (spans) {
+      spans[0].style.transform = "";
+      spans[1].style.opacity = "1";
+      spans[2].style.transform = "";
+    }
   }
+
+  menuBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Ferme au clic sur un lien
+  links.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Ferme au clic en dehors
+  document.addEventListener('click', (e) => {
+    if (isOpen && mobileMenu && !mobileMenu.contains(e.target as Node) && !menuBtn?.contains(e.target as Node)) {
+      closeMenu();
+    }
+  });
 </script>

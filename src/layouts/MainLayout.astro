@@ -2,30 +2,52 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '@/components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Maxime Lagraa — Développeur Web Freelance | Sites Sur Mesure",
+  description = "Développeur web freelance : je crée votre site vitrine, mono-page ou boutique e-commerce sur mesure. Code propre, design unique, livraison rapide. Devis gratuit sous 24h.",
+  noindex = false
+} = Astro.props;
 ---
 
-<html lang="fr">
+<html lang="fr" class="">
   <head>
+    <!-- Anti-flash: apply saved theme before paint -->
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('mld-theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>Mld. — Créateur de site web sur mesure.</title>
-    <meta name="description" content="MLD. crée votre site web sur-mesure : du site vitrine à la boutique e-commerce. Boostez votre présence en ligne avec un design unique, performant et optimisé SEO." />
-    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`https://mld-dev.com${Astro.url.pathname}`} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
 
     <link rel="icon" type="image/png" href="/favicon.png?v=2" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mld-dev.com/" />
-    <meta property="og:title" content="MLD Développement | Créateur de site web sur-mesure" />
-    <meta property="og:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://mld-dev.com/images/og-hero.webp" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://mld-dev.com/" />
-    <meta property="twitter:title" content="MLD Développement | Créateur de site web sur-mesure" />
-    <meta property="twitter:description" content="Propulsez votre business avec un site web sur-mesure, conçu pour captiver vos clients et optimiser votre visibilité en ligne." />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://mld-dev.com/images/og-hero.webp" />
 
     <link
@@ -35,6 +57,108 @@ import Footer from '@/components/Footer.astro';
       type="font/woff2"
       crossorigin="anonymous"
     />
+
+    <!-- Schema.org JSON-LD — Person, ProfessionalService, WebSite, FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://mld-dev.com/#person",
+          "name": "MLD",
+          "url": "https://mld-dev.com/",
+          "jobTitle": "Développeur Web Freelance",
+          "description": "Développeur web freelance spécialisé dans la création de sites sur mesure : sites vitrines, boutiques e-commerce et applications web.",
+          "knowsLanguage": "fr",
+          "worksFor": { "@id": "https://mld-dev.com/#service" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://mld-dev.com/#service",
+          "name": "MLD Développement",
+          "url": "https://mld-dev.com/",
+          "description": "Création de sites web sur mesure : sites vitrines, boutiques e-commerce et sites mono-page. Design unique, performances optimisées et SEO intégré.",
+          "slogan": "La précision du code. L'élégance du design. L'obsession du résultat.",
+          "areaServed": { "@type": "Country", "name": "FR" },
+          "availableLanguage": "French",
+          "priceRange": "€€",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Offres de création de sites web",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Site Mono-page — Essentiel",
+                "description": "Présence en ligne rapide sur une seule page fluide. Design unique & responsive, SEO, HTTPS, animations premium, section contact.",
+                "price": "400",
+                "priceCurrency": "EUR",
+                "url": "https://mld-dev.com/#tarifs",
+                "seller": { "@id": "https://mld-dev.com/#service" }
+              },
+              {
+                "@type": "Offer",
+                "name": "Site Vitrine — Standard",
+                "description": "Présentation de votre expertise sur 1 à 5 pages optimisées. Structure multi-pages, SEO, HTTPS, animations premium, page de contact.",
+                "price": "600",
+                "priceCurrency": "EUR",
+                "url": "https://mld-dev.com/#tarifs",
+                "seller": { "@id": "https://mld-dev.com/#service" }
+              },
+              {
+                "@type": "Offer",
+                "name": "Boutique En ligne — E-Commerce",
+                "description": "Boutique e-commerce robuste avec CMS, Stripe/PayPal, HTTPS, animations premium et formation incluse.",
+                "price": "1750",
+                "priceCurrency": "EUR",
+                "url": "https://mld-dev.com/#tarifs",
+                "seller": { "@id": "https://mld-dev.com/#service" }
+              }
+            ]
+          },
+          "founder": { "@id": "https://mld-dev.com/#person" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mld-dev.com/#website",
+          "url": "https://mld-dev.com/",
+          "name": "MLD Développement",
+          "description": "Création de sites web sur mesure : du site vitrine à la boutique e-commerce.",
+          "inLanguage": "fr-FR",
+          "publisher": { "@id": "https://mld-dev.com/#service" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Le site m'appartient-il à 100% ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, une fois le projet finalisé et réglé, vous êtes l'unique propriétaire du nom de domaine, de l'hébergement et du code source."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quel est le délai moyen pour la livraison d'un site ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pour un site Mono-page, comptez environ 7 à 10 jours. Pour un site Vitrine, 7 à 15 jours et un site E-commerce, comptez environ 4 à 6 semaines. Chaque étape est validée ensemble pour avancer efficacement."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Puis-je modifier le contenu de mon site après sa création ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolument. Selon votre besoin, j'intègre une interface de gestion (CMS) intuitive qui vous permet de modifier vos actualités, vos produits ou vos textes en toute autonomie, sans toucher au code. Une courte formation vous est offerte à la livraison."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
@@ -45,32 +169,37 @@ import Footer from '@/components/Footer.astro';
 </html>
 
 <script>
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.2 // L'animation se déclenche quand 10% de l'élément est visible
-  };
+  // ─── Système de reveal au scroll ─────────────────────────
+  // IntersectionObserver : fiable avec Astro SSR, pas de dépendance externe.
+  // Support data-delay pour stagger sur les grilles de cartes.
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-visible');
-        // On arrête d'observer une fois l'animation jouée (optionnel)
-        // observer.unobserve(entry.target); 
-      }
-    });
-  }, observerOptions);
+  const SELECTORS = '.reveal, .reveal-left, .reveal-right, .reveal-scale';
 
-  // On cible tous les éléments avec la classe .reveal
-  document.querySelectorAll('.reveal').forEach((el) => {
-    observer.observe(el);
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target as HTMLElement;
+        const delay = parseInt(el.dataset.delay ?? '0');
+
+        const reveal = () => el.classList.add('reveal-visible');
+        delay > 0 ? setTimeout(reveal, delay) : reveal();
+
+        observer.unobserve(el); // Une seule fois — performance
+      });
+    },
+    {
+      threshold: 0.08,                   // Déclenche très tôt (8% visible)
+      rootMargin: '0px 0px -24px 0px',  // Légère marge basse pour anticiper
+    }
+  );
+
+  document.querySelectorAll(SELECTORS).forEach((el) => observer.observe(el));
 </script>
 
 <style is:global>
-  /* On met un fond qui ressemble au gradient pour éviter le flash blanc */
   body {
-    background-color: #f9f8ff; /* La couleur de fond de ton site */
+    background-color: var(--color-main-bg);
   }
-  
 </style>

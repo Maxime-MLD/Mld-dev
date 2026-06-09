@@ -1,42 +1,58 @@
 ---
-
+const questions = [
+  {
+    q: "Le site m'appartient-il à 100% ?",
+    a: "Oui, une fois le projet finalisé et réglé, vous êtes l'unique propriétaire du nom de domaine, de l'hébergement et du code source. Je ne garde aucun droit sur votre site et vous pouvez le confier à un autre prestataire à tout moment."
+  },
+  {
+    q: "Quel est le délai moyen pour la livraison d'un site ?",
+    a: "Pour un site Mono-page, comptez environ 7 à 10 jours. Pour un site Vitrine (1 à 5 pages), 7 à 15 jours. Pour une boutique E-commerce, 4 à 6 semaines. Ces délais démarrent une fois que vous m'avez transmis vos contenus (textes, images, logo). Chaque étape est validée ensemble pour avancer efficacement."
+  },
+  {
+    q: "Puis-je modifier le contenu de mon site après sa création ?",
+    a: "Absolument. Selon votre besoin, j'intègre une interface de gestion (CMS) intuitive qui vous permet de modifier vos textes, vos produits ou vos images en toute autonomie, sans toucher au code. Une courte formation personnalisée vous est offerte à la livraison."
+  },
+  {
+    q: "Quelles technologies utilisez-vous pour créer mon site ?",
+    a: "Je travaille principalement avec Astro, React et TypeScript pour le développement, et Tailwind CSS pour le design. Ces technologies de pointe garantissent des sites rapides (scores Lighthouse proches de 100), sécurisés et faciles à faire évoluer. Pour les boutiques e-commerce, j'intègre des solutions de paiement comme Stripe ou PayPal."
+  },
+  {
+    q: "Mon site sera-t-il optimisé pour mobile et tablette ?",
+    a: "Oui, systématiquement. Tous mes sites sont conçus en 'responsive design' dès le premier trait : ils s'adaptent parfaitement aux mobiles, tablettes et grands écrans. Aujourd'hui plus de 60% du trafic web vient du mobile — c'est une priorité, pas une option."
+  },
+  {
+    q: "Proposez-vous de la maintenance après la livraison ?",
+    a: "Je propose un support post-lancement pour corriger d'éventuels problèmes et vous accompagner dans la prise en main de votre site. Pour les évolutions futures (ajout de pages, nouvelles fonctionnalités), des formules de maintenance et d'assistance sont disponibles sur devis. Vous n'êtes jamais laissé sans réponse."
+  },
+  {
+    q: "Comment se déroule le paiement ?",
+    a: "Le projet démarre après versement d'un acompte de 30% à 50% du montant total. Le solde est réglé à la livraison, avant la mise en ligne du site. Je n'accepte le paiement final qu'une fois que vous êtes entièrement satisfait du résultat. Aucune mauvaise surprise."
+  },
+  {
+    q: "Travaillez-vous avec des clients partout en France ?",
+    a: "Oui, je travaille 100% à distance avec des clients partout en France et même à l'international. Les échanges se font par e-mail, téléphone ou visioconférence selon votre préférence. La distance n'a jamais été un obstacle à une collaboration de qualité."
+  }
+];
 ---
 
-<section class="py-24 px-6 bg-main-bg">
+<section id="faq" class="py-24 px-6 bg-main-bg">
   <div class="max-w-3xl mx-auto">
-    <span class="reveal text-[#6352ff] text-base mb-4 block font-mono uppercase text-center tracking-[0.3em]">// Faq</span>
-    <h2 class="reveal text-3xl md:text-4xl font-black uppercase mb-12 text-center leading-tight">Questions <span class="text-gradient-pink italic pr-2 leading-tight">Fréquentes</span></h2>
-    
-    <div class="reveal space-y-4">
-      <details class="reveal group border border-title/5 bg-white/50 rounded-2xl overflow-hidden">
-        <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-title uppercase text-xs tracking-widest">
-          Le site m'appartient-il à 100% ?
-          <span class="text-[#6352ff] text-2xl group-open:rotate-180 transition-transform">+</span>
-        </summary>
-        <div class="p-6 pt-0 text-title/60 text-sm leading-relaxed">
-          Oui, une fois le projet finalisé et réglé, vous êtes l'unique propriétaire du nom de domaine, de l'hébergement et du code source.
-        </div>
-      </details>
-      
-      <details class="reveal group border border-title/5 bg-white/50 rounded-2xl overflow-hidden">
-        <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-title uppercase text-xs tracking-widest">
-          Quel est le délai moyen pour la livraison d'un site ?
-          <span class="text-[#6352ff] text-2xl group-open:rotate-180 transition-transform">+</span>
-        </summary>
-        <div class="p-6 pt-0 text-title/60 text-sm leading-relaxed">
-          Pour un site Mono-page, comptez environ 7 à 10 jours. Pour un site Vitrine, 7 à 15 jours et un site E-commerce, comptez environ 4 à 6 semaines, le délai varie selon la complexité du projet. Chaque étape est validée ensemble pour avancer efficacement.
-        </div>
-      </details>
+    <h2 class="reveal text-3xl md:text-4xl font-black uppercase mb-12 text-center leading-tight text-title dark:text-title">
+      Questions <span class="text-gradient-pink italic pr-2 leading-tight">Fréquentes</span>
+    </h2>
 
-      <details class="reveal group border border-title/5 bg-white/50 rounded-2xl overflow-hidden">
-        <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-title uppercase text-xs tracking-widest">
-          Est-ce que je pourrai modifier le contenu de mon site moi même après sa création ?
-          <span class="text-[#6352ff] text-2xl group-open:rotate-180 transition-transform">+</span>
-        </summary>
-        <div class="p-6 pt-0 text-title/60 text-sm leading-relaxed">
-          Absolument. Selon votre besoin, j'intègre une interface de gestion (CMS) intuitive qui vous permet de modifier vos actualités, vos produits ou vos textes en toute autonomie, sans toucher au code. Une courte formation vous est offerte à la livraison.
-        </div>
-      </details>
-      </div>
+    <div class="reveal space-y-3">
+      {questions.map((item) => (
+        <details class="group border border-title/5 dark:border-white/8 bg-white/50 dark:bg-white/4 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-title dark:text-title uppercase text-xs tracking-widest select-none">
+            {item.q}
+            <span class="text-[#6352ff] text-2xl group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-title/60 dark:text-white/50 text-sm leading-relaxed">
+            {item.a}
+          </div>
+        </details>
+      ))}
+    </div>
   </div>
 </section>

@@ -2,26 +2,60 @@
 import GradientBlurBg from './GradientBlurBg.astro';
 ---
 
-<section id="hero" class="bg-main-bg relative min-h-screen">
+<section id="hero" class="bg-main-bg relative min-h-dvh">
   <GradientBlurBg>
-    <div class="flex flex-col items-center justify-center min-h-screen px-4 text-center">
-      
-<h1 id="hero-title" class="text-5xl md:text-9xl font-black uppercase leading-none text-title overflow-hidden flex flex-col md:block">
-  <span class="hero-title-left inline-block">Développeur de site</span>
-  <br class="hidden md:block" /> <span class="hero-title-right text-gradient-pink inline-block">sur mesure</span>
-</h1>
-      
-      <p id="hero-desc" class="mt-8 text-lg md:text-xl text-body-text max-w-xl">
-        Spécialiste dans la création de site web. La <strong class="font-bold">précision</strong> du code. L'<strong class="font-bold">élégance</strong> du design. L'<strong class="font-bold">obsession</strong> du résultat.
+    <!-- Orbe lumineux derrière le titre -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] w-150 h-100 pointer-events-none z-0">
+      <div class="w-full h-full rounded-full opacity-20 dark:opacity-15 blur-3xl" style="background: radial-gradient(ellipse, #6352ff 0%, #d363ff 50%, transparent 70%);"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center justify-center min-h-dvh px-4 text-center pt-28 md:pt-0 mt-7">
+
+      <h1 id="hero-title" class="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-none text-title overflow-hidden flex flex-col md:block">
+        <span class="hero-title-left inline-block">Développeur de site</span>
+        <br class="hidden md:block" />
+        <span class="hero-title-right text-gradient-pink inline-block pb-1">sur mesure</span>
+      </h1>
+
+      <p id="hero-desc" class="mt-8 text-lg md:text-xl text-title/70 dark:text-title/60 max-w-xl leading-relaxed">
+        <strong class="font-bold text-title dark:text-title">Développeur web freelance</strong> à <strong class="font-bold text-title dark:text-title">Roanne</strong> dans la Loire (42).
+      </p>
+
+      <p id="hero-desc" class="text-lg md:text-xl text-title/70 dark:text-title/60 max-w-xl leading-relaxed">
+        La <strong class="font-bold text-title dark:text-title">précision</strong> du code. L'<strong class="font-bold text-title dark:text-title">élégance</strong> du design. L'<strong class="font-bold text-title dark:text-title">obsession</strong> du résultat.
       </p>
 
       <div id="hero-cta" class="flex flex-col md:flex-row mt-12 gap-4">
-        <a href="#form" class="bg-brand-gradient text-white px-4 md:px-10 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition-transform duration-300 inline-block">
+        <a href="#form" class="cta-btn bg-brand-gradient text-white px-8 md:px-10 py-4 rounded-full font-bold shadow-lg shadow-[#6352ff]/25 inline-block">
           Demander un devis
         </a>
-        <a href="#projets" class="border border-[#c461ff] bg-transparent hover:bg-[#c461ff]/30 text-title px-10 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition-transform duration-300 inline-block">
+        <a href="#projets" class="cta-btn border border-[#6352ff]/50 bg-transparent hover:bg-[#6352ff]/10 dark:hover:bg-[#6352ff]/15 text-title dark:text-title px-10 py-4 rounded-full font-bold inline-block">
           Mes réalisations
         </a>
+      </div>
+
+      <!-- Stats de confiance -->
+      <div id="hero-stats" class="mt-12 flex flex-col sm:flex-row items-center gap-6 sm:gap-12 text-center">
+        <div class="flex flex-col items-center">
+          <span class="text-2xl font-black text-title dark:text-title tabular-nums">
+            <span class="stat-counter" data-target="12" data-suffix="+">12+</span>
+          </span>
+          <span class="text-[10px] uppercase tracking-widest font-bold text-title/40 dark:text-white/30 mt-0.5">Projets livrés</span>
+        </div>
+        <div class="hidden sm:block w-px h-8 bg-title/10 dark:bg-white/10"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-2xl font-black text-title dark:text-title tabular-nums">
+            <span class="stat-counter" data-target="24" data-suffix="h">24h</span>
+          </span>
+          <span class="text-[10px] uppercase tracking-widest font-bold text-title/40 dark:text-white/30 mt-0.5">Délai de réponse</span>
+        </div>
+        <div class="hidden sm:block w-px h-8 bg-title/10 dark:bg-white/10"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-2xl font-black text-title dark:text-title tabular-nums">
+            <span class="stat-counter" data-target="100" data-suffix="%">100%</span>
+          </span>
+          <span class="text-[10px] uppercase tracking-widest font-bold text-title/40 dark:text-white/30 mt-0.5">Propriétaire du code</span>
+        </div>
       </div>
     </div>
   </GradientBlurBg>
@@ -30,34 +64,94 @@ import GradientBlurBg from './GradientBlurBg.astro';
 <script>
 import { gsap } from "gsap/dist/gsap";
 
-const tl = gsap.timeline();
+// Le H1 est animé via CSS (voir <style> ci-dessous) pour ne pas bloquer le LCP.
+// GSAP prend le relais pour les éléments sous le titre.
+const tl = gsap.timeline({ delay: 0.55 }); // Démarre après la fin des animations CSS du titre
 
-// 1. Animation synchronisée du titre
-tl.from(".hero-title-left", { 
-    x: -1000,           // Vient de la gauche (-X)
-    opacity: 0, 
-    duration: 2,     // Un peu plus long pour plus d'élégance
-    ease: "power4.out" 
+tl.from("#hero-desc", {
+    y: 20,
+    opacity: 0,
+    duration: 0.7,
+    ease: "power3.out"
   })
-  .from(".hero-title-right", { 
-    x: 800,            // Vient de la droite (+X)
-    opacity: 0, 
-    duration: 2, 
-    ease: "power4.out" 
-  }, "<")              // "<" Force le démarrage en MÊME TEMPS que l'animation précédente
+  .from("#hero-cta", {
+    y: 12,
+    opacity: 0,
+    duration: 0.5,
+    ease: "back.out(1.7)"
+  }, "-=0.4")
+  .from("#hero-stats", {
+    y: 16,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out",
+    onComplete: () => {
+      // Lance le comptage une fois que les stats sont visibles
+      document.querySelectorAll<HTMLElement>('.stat-counter').forEach(el => {
+        const target = parseInt(el.dataset.target ?? '0', 10);
+        const suffix = el.dataset.suffix ?? '';
+        const duration = 1200; // ms
+        const start = performance.now();
 
-// 2. Suite de ton animation originale (inchangée)
-  .from("#hero-desc", { 
-    y: 20, 
-    opacity: 0, 
-    duration: 0.8, 
-    ease: "power3.out" // Ajout d'un ease pour la fluidité
-  }, "-=0.8")          // Légère synchronisation avec la fin du titre
-  
-  .from("#hero-cta", { 
-    scale: 0.8, 
-    opacity: 0, 
-    duration: 0.5, 
-    ease: "back.out(1.7)" // Un petit effet de rebond sympa pour le bouton
-  }, "-=0.5");
+        const tick = (now: number) => {
+          const elapsed = Math.min(now - start, duration);
+          // Easing out cubic
+          const progress = 1 - Math.pow(1 - elapsed / duration, 3);
+          const current = Math.round(progress * target);
+          el.textContent = current + suffix;
+          if (elapsed < duration) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      });
+    }
+  }, "-=0.2");
 </script>
+
+<style>
+  /*
+   * H1 animé via CSS (off main thread) pour ne pas bloquer le LCP.
+   * L'opacity est incluse : avec les CSS keyframes, le navigateur mesure
+   * le LCP avant que l'animation ne masque l'élément.
+   */
+  @keyframes slideFromLeft {
+    from {
+      transform: translateX(-100px);
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+      clip-path: inset(0 0% 0 0);
+    }
+  }
+
+  @keyframes slideFromRight {
+    from {
+      transform: translateX(100px);
+      opacity: 0;
+      clip-path: inset(0 0 0 100%);
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+      clip-path: inset(0 0 0 0%);
+    }
+  }
+
+  .hero-title-left {
+    animation: slideFromLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .hero-title-right {
+    animation: slideFromRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-title-left,
+    .hero-title-right {
+      animation: none;
+    }
+  }
+</style>

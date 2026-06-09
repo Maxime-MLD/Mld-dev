@@ -1,20 +1,18 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
+/* Police Geist chargée via @font-face local dans global.css + preload dans MainLayout — import npm supprimé */
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* --- Tes Couleurs existantes --- */
+  /* --- Couleurs (light mode) --- */
   --color-main-bg: #f9f8ff;
   --color-card-bg: #ffffff;
   --color-section-bg: #f3f2fa;
   --color-title: #0f0c24;
-  --color-accent: #6352ff; /* Ton Indigo */
+  --color-accent: #6352ff;
 
-  /* --- Nouveau : Le Dégradé --- */
-  /* On crée un dégradé linéaire qui va de l'indigo vers un violet vif */
   --background-image-brand-gradient: linear-gradient(
     135deg,
     #6352ff 0%,
@@ -31,32 +29,111 @@
   display: inline-block; /* Crucial pour que le dégradé s'affiche correctement */
 }
 
-/* L'élément est 30px plus bas et invisible au départ */
+/* ─── Système de reveal au scroll ───────────────────────────── */
+/* État initial — caché */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(28px);
+  transition:
+    opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* L'élément reprend sa place et devient visible */
-.reveal-visible {
+/* Variante depuis la gauche */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Variante depuis la droite */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition:
+    opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Variante scale (pour cards) */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(16px);
+  transition:
+    opacity  0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* État final — visible */
+.reveal-visible,
+.reveal-left.reveal-visible,
+.reveal-right.reveal-visible,
+.reveal-scale.reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0) scale(1);
 }
 
-/* Optionnel : ajouter un délai progressif pour les cartes */
-/* .delay-100 {
-  transition-delay: 100ms;
+/* Reduced motion : respect des préférences utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
 }
-.delay-200 {
-  transition-delay: 200ms;
-}
-.delay-300 {
-  transition-delay: 300ms;
-} */
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Smooth background transition on theme switch */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── CTA button hover premium ──────────────────────────── */
+/* On anime UNIQUEMENT transform + box-shadow — jamais transition-all
+   qui inclut le gradient et provoque un flash au hover */
+.cta-btn {
+  transition:
+    transform  350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cta-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 16px 40px rgba(99, 82, 255, 0.35);
+}
+.cta-btn:active {
+  transform: scale(0.97); /* Feedback physique au clic */
+  transition-duration: 100ms;
+}
+/* Flèche qui glisse vers la droite au hover */
+.cta-btn:hover .cta-arrow {
+  transform: translateX(3px);
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cta-arrow {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-btn, .cta-arrow { transition: none; }
+}
+
+/* ─── Hover card premium ─────────────────────────────────── */
+/* On anime UNIQUEMENT transform + box-shadow — pas transition-all
+   qui provoque un hover saccadé en animant toutes les propriétés */
+.card-lift {
+  transition:
+    transform     500ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow    500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(99, 82, 255, 0.12);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-lift:hover { transform: none; }
 }
 
 @font-face {
@@ -121,6 +198,15 @@ html {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Dark mode overrides for custom theme tokens */
+.dark {
+  --color-main-bg: #09081a;
+  --color-card-bg: #13112b;
+  --color-section-bg: #0e0d22;
+  --color-title: #eeecff;
+  --color-accent: #7c6bff;
 }
 
 :root {

@@ -1,17 +1,21 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
 import Project from '@/components/Project.astro';
+import Testimonials from '@/components/Testimonials.astro';
 import Price from '@/components/Price.astro';
 import Step from '@/components/Step.astro';
 import Faq from '@/components/Faq.astro';
 import Contact from '@/components/Contact.astro';
 ---
 
-<MainLayout title="Développeur Web | Portfolio">
+<MainLayout>
   <main>
     <Hero />
+    <About />
     <Project />
+    <Testimonials />
     <Price />
     <Step />
     <Faq />

@@ -11,6 +11,7 @@ const projects = [
     description: "Site Vitrine pour développeur web avec animation.",
     image: imageMldDev,
     url: "https://mld-dev.com/",
+    alt: "Capture d'écran du site mld-dev.com"
   },
   {
     title: "Portfolio MLD",
@@ -18,13 +19,15 @@ const projects = [
     description: "Portfolio Mono-page avec formulaire de contact.",
     image: imageMldPortfolio,
     url: "https://maxime-mld.vercel.app/",
+    alt: "Capture d'écran du site maxime-mld.vercel.app"
   },
     {
-    title: "Heros League",
+    title: "Projet Heros League",
     year: "2025",
-    description: "Site Vitrine dans la location de super-héros.",
+    description: "Site projet dans la location de super-héros.",
     image: imageHero,
     url: "",
+    alt: "Capture d'écran du site projet Héros League"
   },
 ];
 ---
@@ -36,10 +39,10 @@ const projects = [
   </div>
 
   <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-    
+
     {projects.map((project, index) => (
-      <div class="group bg-white rounded-3xl overflow-hidden border border-title/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
-        
+      <div class="reveal-scale group bg-white dark:bg-card-bg rounded-3xl overflow-hidden border border-title/5 dark:border-white/8 shadow-sm hover:shadow-xl dark:hover:shadow-[#6352ff]/10 transition-all duration-500 flex flex-col" data-delay={index * 100}>
+
         <div class="relative aspect-video overflow-hidden">
           <Image
               src={project.image}
@@ -47,36 +50,42 @@ const projects = [
               height={450}
               format="webp"
               quality={80}
-              alt={project.title}
+              alt={project.alt || project.title}
               class="rounded-2xl"
               loading={index === 0 ? "eager" : "lazy"}
               fetchpriority={index === 0 ? "high" : "low"}
             />
-          
-          <div class="absolute inset-0 bg-[#6352ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-            <a
-              href={project.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="bg-white text-title px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg hover:scale-105 transition-transform"
-            >
-              Voir le projet
-            </a>
-          </div>
+
+          {project.url && (
+            <div class="absolute inset-0 bg-[#6352ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-white text-title px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg hover:scale-105 transition-transform"
+              >
+                Voir le projet
+              </a>
+            </div>
+          )}
         </div>
 
-        <div class="p-6 bg-white flex-1 flex flex-col justify-between">
+        <div class="p-6 bg-white dark:bg-card-bg flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex justify-between items-center mb-2">
-              <h3 class="text-xl font-bold text-[#6352ff]">{project.title}</h3>
-              <span class="text-xs font-mono text-slate-400">
-                {project.year}
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-bold text-title dark:text-title leading-tight">{project.title}</h3>
+              <span class="text-[10px] font-mono font-black text-[#6352ff]/40 dark:text-[#9b8fff]/40 tabular-nums shrink-0 ml-3 mt-0.5">
+                0{index + 1}
               </span>
             </div>
-            <div class="h-1 w-12 bg-[#6352ff] mt-1 rounded-full mb-8"></div>
-            <p class="text-slate-600 text-sm font-style: italic leading-relaxed">
+            <div class="h-px w-full bg-title/5 dark:bg-white/8 mb-4"></div>
+            <p class="text-title/55 dark:text-white/45 text-sm italic leading-relaxed">
               {project.description}
             </p>
+          </div>
+          <div class="mt-5 flex items-center gap-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#6352ff]"></div>
+            <span class="text-[9px] uppercase tracking-widest font-bold text-title/30 dark:text-white/25">{project.year}</span>
           </div>
         </div>
 

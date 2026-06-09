@@ -1,11 +1,12 @@
 ---
 
 ---
-<div class="min-h-screen w-full bg-main-bg relative overflow-hidden">
+<div class="min-h-[100dvh] w-full bg-main-bg relative overflow-hidden">
+  <!-- Light mode grid -->
   <div
-    class="absolute inset-0 z-0 opacity-100 pointer-events-none will-change: transform contain: strict"
+    class="absolute inset-0 z-0 pointer-events-none dark:hidden"
     style="
-      background-image: 
+      background-image:
         linear-gradient(to right, #e2e0ff 1px, transparent 1px),
         linear-gradient(to bottom, #e2e0ff 1px, transparent 1px);
       background-size: 96px 64px;
@@ -13,7 +14,20 @@
       -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
     "
   ></div>
+  <!-- Dark mode grid -->
+  <div
+    class="absolute inset-0 z-0 pointer-events-none hidden dark:block"
+    style="
+      background-image:
+        linear-gradient(to right, rgba(99,82,255,0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99,82,255,0.12) 1px, transparent 1px);
+      background-size: 96px 64px;
+      mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    "
+  ></div>
 
-  <div class="relative z-10 flex flex-col items-center justify-center min-h-screen">
-    <slot /> </div>
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-[100dvh]">
+    <slot />
+  </div>
 </div>

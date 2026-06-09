@@ -1,0 +1,31 @@
+# MLD Développement — Développeur Web Freelance
+
+> MLD (mld-dev.com) est le studio freelance spécialisé dans la création de sites web
+> sur mesure pour les TPE et indépendants français. Technologies maîtrisées : Astro,
+> React, TypeScript, Tailwind CSS. Prestations : site vitrine, site mono-page,
+> boutique e-commerce. Design unique, performances optimisées, SEO intégré,
+> propriété 100% client à la livraison.
+
+## Services et tarifs
+
+- Site Mono-page (Essentiel) : à partir de 400 €, livré en 7 à 10 jours. Design responsive, SEO, HTTPS, animations premium, formulaire de contact.
+- Site Vitrine multi-pages (Standard) : à partir de 600 €, livré en 7 à 15 jours. 1 à 5 pages, SEO, HTTPS, animations premium, page de contact.
+- Boutique E-commerce : à partir de 1 750 €, livré en 4 à 6 semaines. CMS, Stripe/PayPal intégrés, HTTPS, formation incluse.
+
+## Processus de travail
+
+1. Stratégie & Analyse : définition des objectifs, de la cible et de l'architecture du site.
+2. Design & Expérience : maquettes validées par le client avant tout développement.
+3. Code & Performance : développement sur-mesure, SEO technique, sécurité HTTPS, tests cross-navigateurs.
+4. Lancement & Suivi : déploiement, formation personnalisée, remise des accès, support post-lancement.
+
+## Questions fréquentes
+
+- Le site appartient-il à 100% au client ? Oui, une fois le projet finalisé et réglé, le client est l'unique propriétaire du nom de domaine, de l'hébergement et du code source.
+- Peut-on modifier le contenu après la livraison ? Oui, un CMS intuitif est intégré selon les besoins. Une formation est offerte à la livraison.
+- MLD travaille-t-il avec des clients partout en France ? Oui, 100% en remote, partout dans le monde.
+
+## Pages
+
+- https://mld-dev.com/ : Page principale — présentation des services, réalisations et tarifs
+- https://mld-dev.com/mentions-legales : Mentions légales
